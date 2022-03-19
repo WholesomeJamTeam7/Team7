@@ -1,18 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.Events;
 public class ClickEvents : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public UnityEvent onMouseDown;
+    public UnityEvent onMouseUp;
+    public UnityEvent onMouseEnter;
+    public UnityEvent onMouseExit;
+    private void OnMouseDown()
     {
-        
+        onMouseDown.Invoke();
     }
-
-    // Update is called once per frame
-    void Update()
+    private void OnMouseUp()
     {
-        
+        onMouseUp.Invoke();
+    }
+    private void OnMouseEnter()
+    {
+        onMouseEnter.Invoke();
+    }
+    private void OnMouseExit()
+    {
+        onMouseExit.Invoke();
     }
 }
