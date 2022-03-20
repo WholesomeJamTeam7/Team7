@@ -11,14 +11,6 @@ public class Speech : MonoBehaviour
     string textToLoadIn;
     int currentLine = 0;
 
-    public UnityEvent onEndSpeech;
-    public GameObject speechUIObj;
-    public Image background;
-    public Image portrait;
-    public TextMeshProUGUI title;
-    public TextMeshProUGUI content;
-    public Image contarrow;
-
     public enum Emotion { NEUTRAL, HAPPY, EMBARASSED, SHOCKED, SAD };
     [System.Serializable]
     public class SpeechLine
@@ -29,10 +21,33 @@ public class Speech : MonoBehaviour
         [Tooltip("Use this to trigger functions or animations or music or whatever really!")]
         public UnityEvent lineEvent;
     }
-    public SpeechLine[] lines;
+    [System.Serializable]
+    public class Chapter
+    {
+        [SerializeField]public SpeechLine[] lines;
+    }
+    public Chapter[] chapters;
+    SpeechLine[] lines;
 
+    int chapter = 0;
+    public UnityEvent onEndSpeech;
+    public GameObject speechUIObj;
+    public Image background;
+    public Image portrait;
+    public TextMeshProUGUI title;
+    public TextMeshProUGUI content;
+    public Image contarrow;
     private void Start()
     {
+        if (PlayerPrefs.HasKey(gameObject.name + "Chapter"))
+        {
+            chapter = PlayerPrefs.GetInt(gameObject.name + "Chapter");
+            ChangeChapter(chapter);
+        }
+        else
+        {
+            ChangeChapter(1);
+        }
         ResetObjs();
     }
     void ResetObjs()
@@ -116,6 +131,15 @@ public class Speech : MonoBehaviour
         {
             ResetObjs();
         }
+    }
+
+    public void ChangeChapter(int chapterNum)
+    {
+        currentLine = 0;
+        chapter = chapterNum;
+        lines = chapters[chapterNum].lines;
+        PlayerPrefs.SetInt(gameObject.name + "Chapter", chapterNum);
+        Debug.Log("Saved chapter as " + chapterNum);
     }
 
     public void OnInteract()
