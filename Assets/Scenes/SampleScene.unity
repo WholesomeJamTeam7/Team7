@@ -367,13 +367,42 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chapters:
   - lines:
-    - character: {fileID: 0}
-      text: 
+    - character: {fileID: 1122874552}
+      text: HEY! How did you know we were in here!
+      emotion: 3
+      lineEvent:
+        m_PersistentCalls:
+          m_Calls: []
+    - character: {fileID: 1920463695}
+      text: hello :>
+      emotion: 1
+      lineEvent:
+        m_PersistentCalls:
+          m_Calls: []
+    - character: {fileID: 1122874552}
+      text: QUIET CHILD!
+      emotion: 4
+      lineEvent:
+        m_PersistentCalls:
+          m_Calls: []
+    - character: {fileID: 1122874552}
+      text: I assume you can see we have been taking those bits and pieces of yours
       emotion: 0
       lineEvent:
         m_PersistentCalls:
           m_Calls: []
-  - lines: []
+    - character: {fileID: 1122874552}
+      text: Long forgotten down the back of the sofa
+      emotion: 0
+      lineEvent:
+        m_PersistentCalls:
+          m_Calls: []
+    - character: {fileID: 1920463695}
+      text: I love the crumbs!
+      emotion: 1
+      lineEvent:
+        m_PersistentCalls:
+          m_Calls: []
   onEndSpeech:
     m_PersistentCalls:
       m_Calls:
@@ -14472,7 +14501,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68b04ef4de974c04e87e54687e90da09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chapters: []
+  chapters:
+  - lines: []
   onEndSpeech:
     m_PersistentCalls:
       m_Calls:
