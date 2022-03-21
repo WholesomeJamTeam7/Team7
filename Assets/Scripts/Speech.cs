@@ -46,7 +46,7 @@ public class Speech : MonoBehaviour
         }
         else
         {
-            ChangeChapter(1);
+            ChangeChapter(0);
         }
         ResetObjs();
     }
@@ -130,6 +130,7 @@ public class Speech : MonoBehaviour
         else
         {
             ResetObjs();
+            onEndSpeech.Invoke();
         }
     }
 
